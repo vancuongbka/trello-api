@@ -3,7 +3,6 @@ import { slugify } from '../utils/formatters.js'
 import ApiError from '~/utils/ApiError.js';
 
 const createNew = async (board) => {
-  // eslint-disable-next-line no-useless-catch
   try {
     const newBoard = {
       ...board,
@@ -19,7 +18,6 @@ const createNew = async (board) => {
 }
 
 const getDetail = async (id) => {
-  // eslint-disable-next-line no-useless-catch
   try {
     const board = await boardModel.getDetail(id);
 

@@ -7,9 +7,17 @@ import router from './routes/v1/index.js'
 import { errorHandlingMiddleware } from './middlewares/errorHandlingMiddleware.js'
 import cors from 'cors'
 import { corsOptions } from './config/cors.js'
+import cookieParser from 'cookie-parser'
 
 const startServer = () => {
   const app = express()
+
+  app.use((req, res, next) => {
+    res.set('Cache-Control', 'no-store');
+    next()
+  })
+
+  app.use(cookieParser())
 
   app.use(cors(corsOptions))
 
